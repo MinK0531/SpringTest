@@ -13,7 +13,7 @@ public class Test02Controller {
 
     public Map<String, Objects> movies(){
         Map<String,Objects> movie = new HashMap<>();
-        
+
     }
 
 }
