@@ -64,4 +64,46 @@
           AND `price` <=  #{price}
         ]]>
     </select>
+
+    <insert id="insertRealEstateByObject" parameterType="com.mink.springtest.mybatis.domain.RealEstate">
+        INSERT INTO
+            `real_estate`
+        (
+            `realtor_id`
+            ,`address`
+            ,`area`
+            ,`type`
+            ,`price`
+        )
+        VALUE
+        (
+            #{realtorId}
+            ,#{address}
+            ,#{area}
+            ,#{type}
+            ,#{price}
+        )
+    </insert>
+
+
+    <insert id="insertRealEstate" parameterType="map">
+        INSERT INTO
+            `real_estate`
+        (
+        `address`
+        ,`area`
+        ,`type`
+        ,`price`
+        ,`rent_price`
+        )
+        VALUES
+            (
+            #{address}
+            ,#{area}
+            ,#{type}
+            ,#{price}
+            ,#{rentPrice}
+            )
+    </insert>
+
 </mapper>

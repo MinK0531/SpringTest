@@ -14,6 +14,12 @@ public interface RealEstateRepository {
     public List<RealEstate> selectRealEstateListByRentPrice(@Param("rentPrice") int rentPrice);
     public List<RealEstate> selectRealEstateListByAreaPrice(@Param("area") int area,
                                                             @Param("price") int price);
+    public int insertRealEstateByObject(RealEstate realEstate);
 
-
+    public int insertRealEstate(
+            @Param("address") String address
+            ,@Param("area") int area
+            ,@Param("type") String type
+            ,@Param("rentPrice") int rentPrice
+            ,@Param("price") int price);
 }

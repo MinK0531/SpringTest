@@ -31,4 +31,18 @@ public class RealEstateService {
         List<RealEstate> realEstateList = realEstateRepository.selectRealEstateListByAreaPrice(area,price);
         return realEstateList;
     }
+
+    public int createRealEstateByObject(RealEstate realEstate){
+        int count = realEstateRepository.insertRealEstateByObject(realEstate);
+        return count;
+    }
+    public int createRealEstate(
+            String address
+            , int area
+            , String type
+            , int rentPrice
+            , int price ){
+        int count = realEstateRepository.insertRealEstate(address, area, type, price, rentPrice);
+        return count;
+    }
 }
