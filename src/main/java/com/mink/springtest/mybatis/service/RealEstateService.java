@@ -1,0 +1,34 @@
+package com.mink.springtest.mybatis.service;
+
+import com.mink.springtest.mybatis.domain.RealEstate;
+import com.mink.springtest.mybatis.repository.RealEstateRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class RealEstateService {
+
+    @Autowired
+    private RealEstateRepository realEstateRepository;
+
+    public RealEstate getRealEstate(int id){
+
+        RealEstate realEstate =realEstateRepository.selectRealEstate(id);
+        return realEstate;
+    }
+
+    // 전달받은 월세보다 낮은 매물 얻어오기
+
+    public List<RealEstate> getRealEstateListByRentPrice(int rentPrice){
+        // real_estate 테이블에서 전달받은 월세보다 낮은 행들 조회
+        List<RealEstate> realEstateList= realEstateRepository.selectRealEstateListByRentPrice(rentPrice);
+        return realEstateList;
+    }
+
+    public List<RealEstate> getRealEstateListByAreaPrice(int area, int price){
+        List<RealEstate> realEstateList = realEstateRepository.selectRealEstateListByAreaPrice(area,price);
+        return realEstateList;
+    }
+}
