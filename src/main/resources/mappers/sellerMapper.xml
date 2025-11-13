@@ -14,5 +14,37 @@
             ,`updated_at`
         FROM
             `seller`
+        WHERE `id` = #{id}
+        ORDER BY
+            `id` DESC
+            LIMIT 1
+    </select>
+
+    <insert id="insertSeller" parameterType="map">
+        INSERT INTO
+            `seller`
+        (
+          `nickname`
+        ,`temperature`
+        ,`profile_image`
+        )
+        VALUES
+            (
+              #{nickName}
+            , #{temperature}
+            , #{profileImage}
+
+            )
+    </insert>
+    <select id="selectSellerById" resultType="com.mink.springtest.mvc.domain.Seller">
+        SELECT
+            `id`
+             , `nickname`
+             , `temperature`
+             , `profile_image`
+             , `created_at`
+             , `updated_at`
+        FROM `seller`
+        WHERE `id` = #{id}
     </select>
 </mapper>
