@@ -4,6 +4,7 @@ import com.mink.springtest.mybatis.domain.RealEstate;
 import com.mink.springtest.mybatis.service.RealEstateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -67,5 +68,21 @@ public class RealEstateController {
         int count = realEstateService.createRealEstate(realtorId,"썅떼빌리버 오피스텔 814호",45,"월세",100000,120);
         return "입력 성공 : " + count;
 
+    }
+
+    @ResponseBody
+    @RequestMapping("/modify")
+    public String modifyRealEstate(){
+        // id가 22인 행의 type을 전세로 바꾸고 price를 70000으로 변경하세요.
+
+        int count = realEstateService.updateRealEstate(22, "전세",70000);
+        return "수정 성공  : " + count;
+    }
+    @ResponseBody
+    @RequestMapping("/remove")
+    public String removeRealEstate(@RequestParam("id") int id){
+
+        int count =  realEstateService.deleteRealEstate(id);
+        return "삭제  성공  : " + count;
     }
 }

@@ -46,4 +46,15 @@ public class RealEstateService {
         int count = realEstateRepository.insertRealEstate(realtorId, address, area, type, price, rentPrice);
         return count;
     }
+
+    //특정id와 매물 정보의 type과 가격을 수정하는 가능
+    public int updateRealEstate(int id, String type,int price){
+        int count = realEstateRepository.updateRealEstate(id, type, price);
+        return count;
+
+    }
+    public int deleteRealEstate(int id){
+        int count = realEstateRepository.deleteRealEstate(id);
+        return count;
+    }
 }
