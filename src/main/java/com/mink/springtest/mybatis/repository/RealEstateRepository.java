@@ -17,7 +17,8 @@ public interface RealEstateRepository {
     public int insertRealEstateByObject(RealEstate realEstate);
 
     public int insertRealEstate(
-            @Param("address") String address
+            @Param("realtorId") int realtorId
+            ,@Param("address") String address
             ,@Param("area") int area
             ,@Param("type") String type
             ,@Param("rentPrice") int rentPrice

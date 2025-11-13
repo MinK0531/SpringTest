@@ -90,7 +90,8 @@
         INSERT INTO
             `real_estate`
         (
-        `address`
+          `realtor_id`
+        ,`address`
         ,`area`
         ,`type`
         ,`price`
@@ -98,7 +99,8 @@
         )
         VALUES
             (
-            #{address}
+            #{realtorId}
+            ,#{address}
             ,#{area}
             ,#{type}
             ,#{price}

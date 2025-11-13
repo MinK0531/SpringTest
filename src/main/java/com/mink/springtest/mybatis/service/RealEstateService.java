@@ -37,12 +37,13 @@ public class RealEstateService {
         return count;
     }
     public int createRealEstate(
-            String address
+            int realtorId
+            , String address
             , int area
             , String type
             , int rentPrice
             , int price ){
-        int count = realEstateRepository.insertRealEstate(address, area, type, price, rentPrice);
+        int count = realEstateRepository.insertRealEstate(realtorId, address, area, type, price, rentPrice);
         return count;
     }
 }
