@@ -16,19 +16,6 @@ public class SellerController {
     @Autowired
     private SellerService sellerService;
 
-    @GetMapping("/info")
-    public String sellerInfo(
-            @RequestParam(required = false) Integer id, Model model){
-        Seller seller;
-
-        if (id != null) {
-            seller = sellerService.getSellerById(id);
-        } else {
-            seller = sellerService.getSeller();
-        }
-        model.addAttribute("result",seller);
-        return "mvc/sellerInfo";
-    }
 
     @ResponseBody
     @PostMapping("/add")
@@ -44,6 +31,19 @@ public class SellerController {
     public String sellerForm(){
 
         return "mvc/sellerForm";
+    }
+    @GetMapping("/info")
+    public String sellerInfo(@RequestParam(required = false) Integer id, Model model) {
+        Seller seller;
+
+        if (id != null) {
+            seller = sellerService.getSellerById(id);
+        } else {
+            seller = sellerService.getSeller();
+        }
+
+        model.addAttribute("result", seller);
+        return "mvc/sellerInfo";
     }
 
 
