@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface RealtorRepository {
 
-    int insertRealtor(Realtor realtor);
+    public int insertRealtor(Realtor realtor);
 }
 
