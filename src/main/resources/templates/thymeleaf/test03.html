@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>반복문</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1>멤버십</h1>
+    <table class="table table-hover text-center">
+        <thead>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">이름</th>
+            <th scope="col">생년월일</th>
+            <th scope="col">전화번호</th>
+            <th scope="col">국적</th>
+            <th scope="col">이메일</th>
+            <th scope="col">자기소개</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="member:${membership}">
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.phoneNumber}"></td>
+                <td>
+                    <span th:if="${member.grade == 'VIP'}" class="text-danger" th:text="${member.grade}"></span>
+                    <span th:if="${member.grade == 'GOLD'}" class="text-warning" th:text="${member.grade}"></span>
+                    <span th:unless="${member.grade == 'VIP' or member.grade == 'GOLD'}" th:text="${member.grade}"></span>
+                </td>
+                <td>
+                    <span th:if="${member.point > 5000}" class="text-primary" th:text="${member.point}"></span>
+                    <span th:unless="${member.point > 5000}" th:text="${member.point}"></span>
+                </td>
+
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>
