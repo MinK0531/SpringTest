@@ -1,6 +1,7 @@
 package com.mink.springtest.mvc.domain;
 
-import org.apache.ibatis.annotations.Param;
+
+import java.time.LocalDateTime;
 
 public class Realtor {
     private int id;
@@ -8,6 +9,8 @@ public class Realtor {
     private String phoneNumber;
     private String address;
     private String grade;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     public int getId() {
         return id;
@@ -47,5 +50,21 @@ public class Realtor {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
