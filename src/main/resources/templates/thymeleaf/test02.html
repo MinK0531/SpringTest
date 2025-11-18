@@ -48,8 +48,8 @@
                     <span th:unless="${member.grade == 'VIP' or member.grade == 'GOLD'}" th:text="${member.grade}"></span>
                 </td>
                 <td>
-                    <span th:if="${member.point > 5000}" class="text-primary" th:text="${member.point}"></span>
-                    <span th:unless="${member.point > 5000}" th:text="${member.point}"></span>
+                    <span th:if="${member.point >= 5000}" class="text-primary" th:text="${member.point}"></span>
+                    <span th:unless="${member.point >= 5000}" th:text="${member.point}"></span>
                 </td>
 
             </tr>

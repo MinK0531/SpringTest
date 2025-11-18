@@ -2,26 +2,41 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>반복문</title>
+    <title>날짜 포맷과 String 함수</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 </head>
 <body>
 <div class="container">
-    <h1>멤버십</h1>
+    <h1>회원 정보 리스트</h1>
     <table class="table table-hover text-center">
         <thead>
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">이름</th>
-            <th scope="col">생년월일</th>
-            <th scope="col">전화번호</th>
-            <th scope="col">국적</th>
-            <th scope="col">이메일</th>
-            <th scope="col">자기소개</th>
-        </tr>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">이름</th>
+                <th scope="col">생년월일</th>
+                <th scope="col">전화번호</th>
+                <th scope="col">국적</th>
+                <th scope="col">이메일</th>
+                <th scope="col">자기소개</th>
+            </tr>
         </thead>
         <tbody>
+            <tr th:each="member,status: ${members}">
+                <td th:text="${status.count}"></td>
+                <td th:text="${member.name}"></td>
+                <td th:text="${#temporals.format(member.birth, 'yyy년 M월 d일')}"></td>
+                <td>
+                    <span th:if="${#strings.startsWith(member.phoneNumber,'010')}" th:text="${member.phoneNumber}"></span>
+                    <span th:unless="${#strings.startsWith(member.phoneNumber,'010')}">유효하지 않은 전화번호</span>
+                </td>
+                <td th:text="${#strings.replace(member.nationality, '시대','-')}"></td>
+                <td th:utext="${'<b>' + #strings.substringBefore(member.email,'@') + '</b>' + '@' + #strings.substringAfter(member.email,'@')}"></td>
+                <td>
+                    <span th:if="${member.introduce.length() > 15}" th:text="${#strings.substring(member.introduce, 0, 15) + '...'}"></span>
+                    <span th:unless="${member.introduce.length() > 15}" th:text="${member.introduce}"></span>
+                </td>
+            </tr>
           
         </tbody>
 
