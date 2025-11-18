@@ -22,20 +22,7 @@
         </tr>
         </thead>
         <tbody>
-            <tr th:each="member:${membership}">
-                <td th:text="${member.name}"></td>
-                <td th:text="${member.phoneNumber}"></td>
-                <td>
-                    <span th:if="${member.grade == 'VIP'}" class="text-danger" th:text="${member.grade}"></span>
-                    <span th:if="${member.grade == 'GOLD'}" class="text-warning" th:text="${member.grade}"></span>
-                    <span th:unless="${member.grade == 'VIP' or member.grade == 'GOLD'}" th:text="${member.grade}"></span>
-                </td>
-                <td>
-                    <span th:if="${member.point > 5000}" class="text-primary" th:text="${member.point}"></span>
-                    <span th:unless="${member.point > 5000}" th:text="${member.point}"></span>
-                </td>
-
-            </tr>
+          
         </tbody>
 
     </table>
