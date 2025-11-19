@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mink.springtest.thymeleaf.test04.repository.WeatherhistoryRepository" >
+    <select id="selectWeatherhistoryList" resultType="com.mink.springtest.thymeleaf.test04.domain.Weatherhistory">
+        SELECT
+             `date`
+            ,`weather`
+            ,`temperatures`
+            ,`precipitation`
+            ,`micro_dust`
+            ,`wind_speed`
+        FROM
+            `weatherhistory`
+    </select>
+    <insert id="insertWeatherhistoryList" parameterType="map">
+        INSERT INTO
+            `weatherhistory`
+            (
+              `date`
+            ,`weather`
+            ,`temperatures`
+            ,`precipitation`
+            ,`micro_dust`
+            ,`wind_speed`
+            )
+        VALUES
+            (
+             #{date}
+            ,#{weather}
+            ,#{temperatures}
+            ,#{precipitation}
+            ,#{microDust}
+            ,#{windSpeed}
+            )
+    </insert>
+
+</mapper>
