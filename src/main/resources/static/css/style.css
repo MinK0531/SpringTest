@@ -1,5 +1,23 @@
-#wrap{
+#wrap {
     width: 1200px;
-    height: 1200px;
     margin: 0 auto;
+}
+
+
+
+header .side{
+    background-color: #6394ea;
+}
+
+.logo-left img {
+    width: 25px;
+    height: 25px;
+}
+footer img{
+
+}
+
+hr {
+    margin-top: 0;
+    border: 1px solid #ccc;
 }

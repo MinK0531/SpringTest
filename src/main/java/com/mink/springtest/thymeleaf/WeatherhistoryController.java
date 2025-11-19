@@ -11,5 +11,10 @@ public class WeatherhistoryController {
 
         return "thymeleaf/weatherhistoryInfo";
     }
+    @GetMapping("/thymeleaf/weatherhistory1")
+    public String WeatherhistoryList2(){
+
+        return "thymeleaf/weatherhistoryform";
+    }
 
 }
