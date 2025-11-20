@@ -1,21 +1,28 @@
 package com.mink.springtest.thymeleaf.test04.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Weatherhistory {
+    private int id;
+    private String weather;
+    @DateTimeFormat(pattern="yyyy년 M월 d일")
     private LocalDate date;
-    private  String weather;
     private double temperatures;
     private double precipitation;
-    private  String microDust;
+    private String microDust;
     private double windSpeed;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public LocalDate getDate() {
-        return date;
+    public int getId() {
+        return id;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getWeather() {
@@ -24,6 +31,14 @@ public class Weatherhistory {
 
     public void setWeather(String weather) {
         this.weather = weather;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public double getTemperatures() {
@@ -56,5 +71,21 @@ public class Weatherhistory {
 
     public void setWindSpeed(double windSpeed) {
         this.windSpeed = windSpeed;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

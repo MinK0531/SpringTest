@@ -4,34 +4,38 @@
 <mapper namespace="com.mink.springtest.thymeleaf.test04.repository.WeatherhistoryRepository" >
     <select id="selectWeatherhistoryList" resultType="com.mink.springtest.thymeleaf.test04.domain.Weatherhistory">
         SELECT
-             `date`
-            ,`weather`
-            ,`temperatures`
-            ,`precipitation`
-            ,`micro_dust`
-            ,`wind_speed`
+            `id`
+             , `weather`
+             , `date`
+             , `temperatures`
+             , `precipitation`
+             , `micro_dust`
+             , `wind_speed`
+             , `created_at`
+             , `updated_at`
+
         FROM
             `weatherhistory`
     </select>
     <insert id="insertWeatherhistoryList" parameterType="map">
         INSERT INTO
             `weatherhistory`
+        (
+          `weather`
+        , `date`
+        , `temperatures`
+        , `precipitation`
+        , `micro_dust`
+        , `wind_speed`
+        )
+            VALUE
             (
-              `date`
-            ,`weather`
-            ,`temperatures`
-            ,`precipitation`
-            ,`micro_dust`
-            ,`wind_speed`
-            )
-        VALUES
-            (
-             #{date}
-            ,#{weather}
-            ,#{temperatures}
-            ,#{precipitation}
-            ,#{microDust}
-            ,#{windSpeed}
+            #{weather}
+            , #{date}
+            , #{temperatures}
+            , #{precipitation}
+            , #{microDust}
+            , #{windSpeed}
             )
     </insert>
 
@@ -39,21 +43,21 @@
         INSERT INTO
             `weatherhistory`
         (
-          `date`
-        ,`weather`
-        ,`temperatures`
-        ,`precipitation`
-        ,`micro_dust`
-        ,`wind_speed`
+          `weather`
+        , `date`
+        , `temperatures`
+        , `precipitation`
+        , `micro_dust`
+        , `wind_speed`
         )
-        VALUES
+            VALUE
             (
-              #{date}
-            ,#{weather}
-            ,#{temperatures}
-            ,#{precipitation}
-            ,#{microDust}
-            ,#{windSpeed}
+            #{weather}
+            , #{date}
+            , #{temperatures}
+            , #{precipitation}
+            , #{microDust}
+            , #{windSpeed}
             )
     </insert>
 
