@@ -35,4 +35,27 @@
             )
     </insert>
 
+    <insert id="insertWeatherhistoryByObject" parameterType="com.mink.springtest.thymeleaf.test04.domain.Weatherhistory">
+        INSERT INTO
+            `weatherhistory`
+        (
+          `date`
+        ,`weather`
+        ,`temperatures`
+        ,`precipitation`
+        ,`micro_dust`
+        ,`wind_speed`
+        )
+        VALUES
+            (
+              #{date}
+            ,#{weather}
+            ,#{temperatures}
+            ,#{precipitation}
+            ,#{microDust}
+            ,#{windSpeed}
+            )
+    </insert>
+
+
 </mapper>

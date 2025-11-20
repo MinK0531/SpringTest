@@ -8,7 +8,7 @@ public class Weatherhistory {
     private double temperatures;
     private double precipitation;
     private  String microDust;
-    private String windSpeed;
+    private double windSpeed;
 
     public LocalDate getDate() {
         return date;
@@ -50,11 +50,11 @@ public class Weatherhistory {
         this.microDust = microDust;
     }
 
-    public String getWindSpeed() {
+    public double getWindSpeed() {
         return windSpeed;
     }
 
-    public void setWindSpeed(String windSpeed) {
+    public void setWindSpeed(double windSpeed) {
         this.windSpeed = windSpeed;
     }
 }

@@ -11,11 +11,13 @@ import java.util.List;
 public interface WeatherhistoryRepository {
     public List<Weatherhistory> selectWeatherhistoryList();
     public int insertWeatherhistoryList(
-            @Param("date") String date
+            @Param("date") LocalDate date
             , @Param("weather") String weather
             , @Param("temperatures") double temperatures
             , @Param("precipitation") double precipitation
             , @Param("microDust") String microDust
-            , @Param("windSpeed") String windSpeed);
+            , @Param("windSpeed") double windSpeed);
+
+    public  int insertWeatherhistoryByObject (Weatherhistory weatherhistory);
 
 }

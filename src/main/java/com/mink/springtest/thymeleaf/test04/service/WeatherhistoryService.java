@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -19,13 +20,17 @@ public class WeatherhistoryService {
         return weatherhistory;
     }
     public int createWeatherhistory(
-            String date
+            LocalDate date
             , String weather
             ,double temperatures
             ,double precipitation
             ,String microDust
-            ,String windSpeed){
+            ,double windSpeed){
         int count = weatherhistoryRepository.insertWeatherhistoryList(date, weather, temperatures, precipitation, microDust, windSpeed);
+        return count;
+    }
+    public int createWeatherhistoryByObject(Weatherhistory weatherhistory){
+        int count = weatherhistoryRepository.insertWeatherhistoryByObject(weatherhistory);
         return count;
     }
 
