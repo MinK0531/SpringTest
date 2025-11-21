@@ -3,14 +3,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mink.springtest.ajax.repository.FavoriteRepository">
-    <insert id="insertFavorite" parameterType="com.mink.springtest.ajax.domain.Favorite">
+    <insert id="insertFavorite" parameterType="map">
         INSERT INTO
             `favorite`
         (
           `name`
         ,`url`
         )
-            VALUE
+            VALUES
             (
             #{name}
             ,#{url}

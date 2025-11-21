@@ -19,6 +19,13 @@ public class FavoriteController {
     @Autowired
     private FavoriteService favoriteService;
 
+    @GetMapping("/info")
+    public String FavoriteListInFo(Model model){
+        List<Favorite> favoriteList = favoriteService.getFavorite();
+        model.addAttribute("favoriteList", favoriteList);
+        return "ajax/favoriteInfo";
+    }
+    @ResponseBody
     @PostMapping ("/add")
     public Map<String,String>   addFavorite(
             @RequestParam("name") String name
@@ -39,12 +46,5 @@ public class FavoriteController {
     @GetMapping("/form")
     public String favoriteForm() {
         return "ajax/favoriteform";
-    }
-
-    @GetMapping("/info")
-    public String FavoriteListInFo(Model model){
-        List<Favorite> favoriteList = favoriteService.getFavorite();
-        model.addAttribute("favoriteList", favoriteList);
-        return "ajax/favoriteInfo";
     }
 }

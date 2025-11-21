@@ -22,21 +22,29 @@
             let url = $("#urlInput").val();
 
             if (name ==""){
-                alert("제목을 입력하세요")
+                alert("제목을 입력하세요");
+                return;
             }
             if (url ==""){
-                alert("주소를 입력하세요")
+                alert("주소를 입력하세요");
+                return;
             }
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                alert("주소규격을 확인하세요.");
+                return;
+            }
+
             $.ajax({
                 type:"post"
                 , url:"/ajax/favorite/add"
                 , data: {"name": name, "url": url}
                 , success:function (response){
 
-                    if (response.result == "success"){
-                        alert("성공!!")
-                    }else{
-                        alert("추가 실패!!")
+                    if (response.result == "success") {
+                        alert("성공!!");
+                        location.href = "/ajax/favorite/info";
+                    } else {
+                        alert("추가 실패!!");
                     }
                 }
                 , error: function (){
