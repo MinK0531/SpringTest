@@ -26,5 +26,14 @@ public class FavoriteService {
         return count;
     }
 
+    public boolean isDuplicateUrl(String url){
+        int count = favoriteRepository.countFavoriteByUrl(url);
+
+        if(count==0){
+            return false;
+        }else {
+            return true;
+        }
+    }
 
 }

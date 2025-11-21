@@ -47,4 +47,16 @@ public class FavoriteController {
     public String favoriteForm() {
         return "ajax/favoriteform";
     }
+
+    @ResponseBody
+    @GetMapping("duplicate-url")
+    public Map<String,Boolean> isDuplicateUrl(@RequestParam("url") String url){
+        Map<String,Boolean> resultMap =new HashMap<>();
+        if(favoriteService.isDuplicateUrl(url)){
+            resultMap.put("isduplicate",true);
+        }else {
+            resultMap.put("isduplicate",false);
+        }
+        return resultMap;
+    }
 }
