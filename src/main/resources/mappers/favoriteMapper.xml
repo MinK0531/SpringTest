@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mink.springtest.ajax.repository.FavoriteRepository">
+    <insert id="insertFavorite" parameterType="com.mink.springtest.ajax.domain.Favorite">
+        INSERT INTO
+            `favorite`
+        (
+          `name`
+        ,`url`
+        )
+            VALUE
+            (
+            #{name}
+            ,#{url}
+            )
+    </insert>
+    <select id="selectFavoriteList" resultType="com.mink.springtest.ajax.domain.Favorite">
+        SELECT
+            `id`
+             , `name`
+             , `url`
+             , `created_at`
+             , `updated_at`
+
+        FROM
+            `favorite`
+    </select>
+</mapper>
