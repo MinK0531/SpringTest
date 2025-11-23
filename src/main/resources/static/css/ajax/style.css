@@ -1,0 +1,35 @@
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+header{
+    height: 100px;
+}
+nav{
+    height: 45px;
+}
+.title{
+    height: 80px;
+}
+
+.main-menu{
+    background-color: #cb843e;
+}
+.main-contents > .booking{
+    height: 300px;
+    background-color: #a0512c;
+
+}
+.main-contents > .search{
+    height: 300px;
+    background-color: #cf691e;
+
+}
+.main-contents > .contact{
+    height: 300px;
+    background-color: #a0512c;
+
+}
+footer{
+    height: 50px;
+}
