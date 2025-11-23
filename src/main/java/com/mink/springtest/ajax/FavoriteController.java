@@ -43,6 +43,25 @@ public class FavoriteController {
 
     }
 
+    @ResponseBody
+    @PostMapping ("/delete")
+    public Map<String,String>  removeFavorite(
+            @RequestParam("id") int id){
+        int count = favoriteService.deleteFavorit(id);
+
+        Map<String,String> resultMap =new HashMap<>();
+
+        if (count == 1){
+            resultMap.put("result","success");
+        }else {
+            resultMap.put("result","fail");
+        }
+        return resultMap;
+
+    }
+
+
+
     @GetMapping("/form")
     public String favoriteForm() {
         return "ajax/favoriteform";
