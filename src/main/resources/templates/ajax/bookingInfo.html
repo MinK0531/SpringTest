@@ -36,20 +36,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="btn btn-danger text-light deleteBtn" type="button">삭제</button></td>
-
+                <tr th:each="booking :${bookingList}">
+                    <td th:text="${booking.name}"></td>
+                    <td th:text="${#temporals.format(booking.date,'yyy년 M월 d일')}"></td>
+                    <td th:text="${booking.day}"></td>
+                    <td th:text="${booking.headCount}"></td>
+                    <td th:text="${booking.phoneNumber}"></td>
+                    <td th:switch="${booking.state}">
+                        <span th:case="대기중" class="text-info" th:text="${booking.state}"></span>
+                        <span th:case="확정" class="text-success" th:text="${booking.state}"></span>
+                    </td>
+                    <td><button class="btn btn-danger text-light removeBtn" type="button" th:data-id="${booking.id}">삭제</button></td>
                 </tr>
-
                 </tbody>
-
-
             </table>
 
         </section>
@@ -60,7 +59,30 @@
                 Copyright 2025 tongnamu All right reserved
             </div>
         </footer>
-    </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script>
+            $(document).on("click",".removeBtn",function (){
+                let id = $(this).data("id");
 
+                $.ajax({
+                    type:"post"
+                    ,url:"/ajax/booking/delete"
+                    , data:{"id": id}
+                    ,success: function (response){
+                        if(response.result == "success"){
+                            alert("삭제 성공")
+                            location.reload();
+                        }else {
+                            alert("삭제 실패")
+                        }
+                    }
+                    ,error:function (){
+                        alert("에러!!")
+                    }
+                });
+            });
+
+        </script>
+    </div>
 </body>
 </html>

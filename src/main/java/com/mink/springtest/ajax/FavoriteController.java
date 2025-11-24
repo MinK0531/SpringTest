@@ -2,7 +2,6 @@ package com.mink.springtest.ajax;
 
 import com.mink.springtest.ajax.domain.Favorite;
 import com.mink.springtest.ajax.service.FavoriteService;
-import com.mink.springtest.thymeleaf.test04.domain.Weatherhistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +26,7 @@ public class FavoriteController {
     }
     @ResponseBody
     @PostMapping ("/add")
-    public Map<String,String>   addFavorite(
+    public Map<String,String> addFavorite(
             @RequestParam("name") String name
             , @RequestParam("url") String url){
         int count = favoriteService.createFavorit(name,url);
