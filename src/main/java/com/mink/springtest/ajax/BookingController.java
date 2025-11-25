@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @RequestMapping("/ajax/booking")
 @Controller
@@ -59,6 +60,32 @@ public class BookingController {
 
         if (count == 1){
             resultMap.put("result","success");
+        }else {
+            resultMap.put("result","fail");
+        }
+        return resultMap;
+    }
+
+    @ResponseBody
+    @GetMapping("/search")
+    public Map<String, Object>  searchBooking(
+            @RequestParam("name") String name
+            ,@RequestParam("phoneNumber") String phoneNumber) {
+
+        Booking booking = bookingService.getBooking(name, phoneNumber);
+
+        Map<String, Object> resultMap = new HashMap<>();
+
+
+//        resultMap.put("name", booking.getName());
+//        resultMap.put("date", booking.getDate());
+//        resultMap.put("day", booking.getDay());
+//        resultMap.put("headCount", booking.getHeadCount());
+//        resultMap.put("state", booking.getState());
+
+        if (booking != null){
+            resultMap.put("result", "success");
+            resultMap.put("booking", booking);
         }else {
             resultMap.put("result","fail");
         }

@@ -12,4 +12,10 @@ public interface BookingRepository {
     public List<Booking> selectBookingList();
     public int deleteBooking(@Param("id") int id);
     public int insertBooking(Booking booking);
+    public Booking selectBooking(
+            @Param("name") String name
+            , @Param("phoneNumber") String phoneNumber);
+
+
+
 }
