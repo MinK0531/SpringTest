@@ -23,7 +23,7 @@
         WHERE
             `id`= #{id}
     </delete>
-    <insert id="insetBooking" parameterType="com.mink.springtest.ajax.domain.Booking">
+    <insert id="insertBooking" parameterType="com.mink.springtest.ajax.domain.Booking">
         INSERT INTO
             `booking`
             (
@@ -39,7 +39,7 @@
             ,#{date}
             ,#{day}
             ,#{headCount}
-            ,#{phonNumber}
+            ,#{phoneNumber}
             )
     </insert>
 </mapper>

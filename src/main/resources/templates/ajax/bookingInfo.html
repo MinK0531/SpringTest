@@ -38,7 +38,7 @@
                 <tbody>
                 <tr th:each="booking :${bookingList}">
                     <td th:text="${booking.name}"></td>
-                    <td th:text="${#temporals.format(booking.date,'yyy년 M월 d일')}"></td>
+                    <td th:text="${#temporals.format(booking.date,'yyyy년 M월 d일')}"></td>
                     <td th:text="${booking.day}"></td>
                     <td th:text="${booking.headCount}"></td>
                     <td th:text="${booking.phoneNumber}"></td>

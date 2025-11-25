@@ -22,8 +22,8 @@ public class BookingService {
         int count = bookingRepository.deleteBooking(id);
         return count;
     }
-    public int crerateBooking(Booking booking){
-        int count = bookingRepository.insetBooking(booking);
+    public int createBooking(Booking booking){
+        int count = bookingRepository.insertBooking(booking);
         return count;
     }
 }

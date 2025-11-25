@@ -53,7 +53,7 @@ public class BookingController {
     @ResponseBody
     @PostMapping("/add")
     public  Map<String,String> addBooking(@ModelAttribute Booking booking){
-        int count = bookingService.crerateBooking(booking);
+        int count = bookingService.createBooking(booking);
 
         Map<String,String> resultMap =new HashMap<>();
 

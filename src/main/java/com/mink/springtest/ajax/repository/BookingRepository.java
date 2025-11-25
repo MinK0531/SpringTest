@@ -11,5 +11,5 @@ public interface BookingRepository {
 
     public List<Booking> selectBookingList();
     public int deleteBooking(@Param("id") int id);
-    public int insetBooking(Booking booking);
+    public int insertBooking(Booking booking);
 }
