@@ -23,8 +23,6 @@ public interface RecruitRepository extends JpaRepository<Recruit ,Integer> {
 
     @Query(value = "SELECT * FROM `recruit` WHERE `deadline` > :deadline AND `type` = :type AND `salary` >= :salary ORDER BY `salary` DESC", nativeQuery = true)
     public List<Recruit> selectByRecruit(String deadline, String type, int salary);
-
-
-
+    
 }
 
